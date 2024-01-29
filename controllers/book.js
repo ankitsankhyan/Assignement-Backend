@@ -39,7 +39,7 @@ module.exports.updatebook = async (req, res) => {
     book.description = description;
 
     await book.save();
-    return res.json({
+    return res.status(200).json({
         message: 'Book updated!',
         updated: book
     });
@@ -48,7 +48,7 @@ module.exports.updatebook = async (req, res) => {
 
 module.exports.booklist = async(req, res)=>{
     const books = await Book.find({});
-    return res.status(201).json({
+    return res.status(200).json({
         books,
     });
 }
